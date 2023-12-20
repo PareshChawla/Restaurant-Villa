@@ -25,9 +25,15 @@ body {
     gap: 5rem;
 }
 
-li {
+.link {
     font-size: large;
     font-weight: 100;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link:hover {
+    color: brown;
 }
 
 .search-input {

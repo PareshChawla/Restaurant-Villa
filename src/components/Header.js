@@ -1,5 +1,6 @@
 import foodImage from "../assets/img/logo.png"
 import cart from "../assets/img/cart.png";
+import { Link } from "react-router-dom";
 
 const Title = () => (
          <a href="/">
@@ -13,10 +14,10 @@ const Header =  () => (
                <Title />
                <div className="nav-items">
                    <ul>
-                       <li>Home</li>
-                       <li>Menu</li>
-                       <li>About</li>
-                       <li>Contact</li>
+                       <Link to="/" className="link">Home</Link>
+                       <Link to="/menu" className="link">Menu</Link>
+                       <Link to="/about" className="link">About</Link>
+                       <Link to="/contact" className="link">Contact</Link>
                    </ul>
                </div>
                <img className="cart-img" src={cart} alt="cart" />
