@@ -34,6 +34,8 @@ const Body = () => {
 
       setAllRestaurants(apiRestaurants);
       setFilteredRestaurants(apiRestaurants);
+      console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants[5].info)
       // console.log(apiRestaurants);
     } catch (error) {
       console.error("Error fetching restaurants:", error);

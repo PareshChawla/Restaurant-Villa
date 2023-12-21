@@ -15,9 +15,8 @@ const Header =  () => (
                <div className="nav-items">
                    <ul>
                        <Link to="/" className="link">Home</Link>
-                       <Link to="/menu" className="link">Menu</Link>
                        <Link to="/about" className="link">About</Link>
-                       <Link to="/contact" className="link">Contact</Link>
+                       <Link to="/contact" className="link">Contact us</Link>
                    </ul>
                </div>
                <img className="cart-img" src={cart} alt="cart" />

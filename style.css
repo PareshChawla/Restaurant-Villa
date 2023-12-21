@@ -41,6 +41,7 @@ body {
     border-radius: 12px;
     height: 1.5rem;
     border: 2px solid black;
+    text-align: center;
 }
 
 .search-container {
@@ -126,6 +127,14 @@ body {
 .no-restaurant img {
     height: 300px;
     width: 300px;
+}
+
+.contact-comp {
+    height: 70vh;
+}
+
+.about-comp {
+    height: 70vh;
 }
 
 
