@@ -25,18 +25,17 @@ const Body = () => {
   async function getRestaurants() {
     try {
       const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9801436&lng=77.5685724&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
       const jsonData = await response.json();
       const apiRestaurants =
-        jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants || [];
+        jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
       setAllRestaurants(apiRestaurants);
       setFilteredRestaurants(apiRestaurants);
-      console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants[5].info)
-      // console.log(apiRestaurants);
+      // console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      //     ?.restaurants[5].info)
+      console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.error("Error fetching restaurants:", error);
     }

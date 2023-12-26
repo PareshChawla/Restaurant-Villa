@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import LoginForm from "./components/LoginForm";
 
 
 const AppLayout = () => (
@@ -35,6 +36,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />,
+            },
+            {
+                path: "/login",
+                element: <LoginForm />,
             }
         ]
     },
