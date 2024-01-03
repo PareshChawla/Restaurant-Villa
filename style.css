@@ -137,5 +137,13 @@ body {
     height: 70vh;
 }
 
+.offline {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
 
 

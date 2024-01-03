@@ -22,7 +22,6 @@ class ProfileClass extends React.Component {
                         });
                     }}
                 >Count</button>
-
             </>
             
         )

@@ -1,15 +1,11 @@
-// Body component
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import NotFoundImg from "../assets/img/notFound.jpg";
+import OfflineImg from "../assets/img/offline.jpg";
+import { filterData } from "../utils/utils";
+import useOnline from "../hooks/useOnline";
 
-const filterData = (searchInput, restaurants) => {
-  const data = restaurants.filter((restaurant) =>
-    restaurant.info.name.toLowerCase().includes(searchInput.toLowerCase())
-  );
-  return data;
-};
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -39,6 +35,16 @@ const Body = () => {
     } catch (error) {
       console.error("Error fetching restaurants:", error);
     }
+  }
+
+  const isOnline = useOnline();
+
+  if(!isOnline) {
+    return (
+      <div className="offline">
+       <h1>No internet connection!!</h1>
+      </div>
+    )
   }
 
   const handleSearch = () => {
