@@ -1,6 +1,6 @@
 const Footer = () => (
     <>
-        <div className="footer">
+        <div className="flex bg-[#435334] h-[20vh] items-center justify-center">
             <h4>&copy;  Copyright 2023 Paresh Chawla</h4>
         </div>
         

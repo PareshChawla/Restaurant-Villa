@@ -41,7 +41,7 @@ const Body = () => {
 
   if(!isOnline) {
     return (
-      <div className="offline">
+      <div className="h-[70vh] text-center items-center mt-4 text-3xl font-bold">
        <h1>No internet connection!!</h1>
       </div>
     )
@@ -71,10 +71,10 @@ const Body = () => {
  
   return (allRestaurants.length===0)?(<Shimmer />):(
     <>
-      <div className="search-container">
+      <div className="flex justify-center items-center">
         <input
           type="text"
-          className="search-input"
+          className='m-5 border-black border-2 rounded-lg text-center focus:bg-blue-100'
           placeholder="Search"
           value={searchInput}
           onChange={(e) => {
@@ -88,18 +88,18 @@ const Body = () => {
           }}
           onKeyDown={handleKeyPress}
         />
-        <button className="search-btn" onClick={handleSearch}>Search</button>
+        <button className="bg-[#DEB887] border-2 border-black  rounded-xl h-8 w-16 hover:bg-black hover:text-red-50" onClick={handleSearch}>Search</button>
       </div>
 
       {noResults ? (
-        <div className="no-restaurant">
-          <h1>No such restaurant found.</h1>
-          <img src={NotFoundImg} alt="no-restaurant" />
+        <div className="flex flex-col text-center items-center">
+          <h1 className="text-2xl font-bold">No such restaurant found!!</h1>
+          <img className="h-80 w-80" src={NotFoundImg} alt="no-restaurant" />
         </div>
         
 
       ) : (
-        <div className="restaurant-list">
+        <div className="flex flex-wrap bg-[#9EB384]">
           {filteredRestaurants.map((restaurant) => (
             <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
           ))}

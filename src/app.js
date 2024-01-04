@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import ProfileClass from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
+import Instamart from "./components/Instamart";
 
 const Contact = lazy(() => import("./components/Contact"));
 
@@ -41,6 +42,10 @@ const appRouter = createBrowserRouter([
                         element: <ProfileClass />,
                     },
                 ],
+            },
+            {
+                path: "/instamart",
+                element: <Instamart />,
             },
             {
                 path: "/contact",

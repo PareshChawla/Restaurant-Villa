@@ -6,10 +6,10 @@ const Error = () => {
     const err = useRouteError();
     return (
         <>
-            <div className="error-page">
-                <h1>Oops!!!</h1>
-                <h2>{err.status +" : "+err.statusText}</h2>
-                <img src={ErrorImg} loading="lazy" alt="errorImage" />
+            <div className="flex flex-col text-center text-red-500">
+                <h1 className="text-4xl mt-8 mb-6">Oops!!!</h1>
+                <h2 className="text-2xl ">{err.status +" : "+err.statusText}</h2>
+                <img src={ErrorImg} loading="lazy" className="h-2/4 w-2/4 ml-[25%]" alt="errorImage" />
             </div>
         </>
     )
