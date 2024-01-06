@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import NotFoundImg from "../assets/img/notFound.jpg";
-import OfflineImg from "../assets/img/offline.jpg";
 import { filterData } from "../utils/utils";
 import useOnline from "../hooks/useOnline";
+
 
 
 const Body = () => {
@@ -18,6 +18,7 @@ const Body = () => {
     getRestaurants();
   }, []); // Ensure useEffect runs only once on component mount
 
+
   async function getRestaurants() {
     try {
       const response = await fetch(
@@ -25,13 +26,13 @@ const Body = () => {
       );
       const jsonData = await response.json();
       const apiRestaurants =
-        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
       setAllRestaurants(apiRestaurants);
       setFilteredRestaurants(apiRestaurants);
       // console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
       //     ?.restaurants[5].info)
-      console.log(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      // console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.error("Error fetching restaurants:", error);
     }
@@ -68,7 +69,6 @@ const Body = () => {
     }
   }
 
- 
   return (allRestaurants.length===0)?(<Shimmer />):(
     <>
       <div className="flex justify-center items-center">
@@ -88,7 +88,7 @@ const Body = () => {
           }}
           onKeyDown={handleKeyPress}
         />
-        <button className="bg-[#DEB887] border-2 border-black  rounded-xl h-8 w-16 hover:bg-black hover:text-red-50" onClick={handleSearch}>Search</button>
+        <button className="bg-[#DEB887] border-2 border-black  rounded-lg h-6 w-14 hover:bg-black hover:text-red-50 text-sm" onClick={handleSearch}>Search</button>
       </div>
 
       {noResults ? (
@@ -99,11 +99,17 @@ const Body = () => {
         
 
       ) : (
+        <>
+        <div className="bg-[#9EB384] h-[5vh]">
+         <h1 className="font-bold text-2xl ml-4 mb-4">Top restaurant chains</h1>
+        </div>
         <div className="flex flex-wrap bg-[#9EB384]">
           {filteredRestaurants.map((restaurant) => (
-            <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
+            <RestaurantCard {...restaurant.info} key={restaurant.info.id} 
+            />
           ))}
         </div>
+        </>
       )}
     </>
   );

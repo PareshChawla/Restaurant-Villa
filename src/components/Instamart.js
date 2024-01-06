@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Section = ({title, description, isVisible, setVisibleSection}) => {
+
+    const {user} = useContext(UserContext);
     return (
         <>
           <div className="border border-black p-2 m-2">
             <div className="flex flex-row gap-2 items-center mb-4">
+                {user.name} {user.email}
                <h2 className="text-2xl font-bold">{title}</h2>
                {isVisible==title? (
                     <button 
