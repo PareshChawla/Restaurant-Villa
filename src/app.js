@@ -11,6 +11,7 @@ import ProfileClass from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
 import Instamart from "./components/Instamart";
 import UserContext from "./utils/UserContext";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const Contact = lazy(() => import("./components/Contact"));
 
@@ -70,6 +71,10 @@ const appRouter = createBrowserRouter([
             {
                 path: "/login",
                 element: <LoginForm />,
+            },
+            {
+                path:"/restaurants/:resId",
+                element: <RestaurantMenu />,
             }
         ]
     },

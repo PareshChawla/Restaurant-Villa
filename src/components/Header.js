@@ -16,7 +16,7 @@ const Header =  () => {
     const {user} = useContext(UserContext);
     return (
         <>
-            <div className="h-[13vh] w-full flex flex-col items-center sm:flex-row sm:flex justify-between bg-[#FAF1E4] border-[#DEB887] border shadow-md">
+            <div className="h-[13vh] w-full flex flex-col items-center sm:flex-row sm:flex justify-between bg-[#FAF1E4] border-[#DEB887] border shadow-lg">
                <Title />
                    <ul className="flex gap-20 py-10 ml-auto mr-12">
                        <Link to="/" className="hover:text-orange-800 text-md font-serif">Home</Link>
