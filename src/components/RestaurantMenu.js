@@ -1,53 +1,41 @@
 import useRestaurantMenu from "../hooks/useRestaurantMenu";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
-    
-    const { resId } = useParams();
-    console.log(resId);
+  const { resId } = useParams();
 
-    const resInfo = useRestaurantMenu(resId);
-    console.log(resInfo);
+  const resInfo = useRestaurantMenu(resId);
 
-    if (resInfo===null) {
-        return <Shimmer />;
-    }
+  if (resInfo === null) {
+    return <Shimmer />;
+  }
 
-    const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[0]?.card?.card?.info;
 
-    console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3].card?.card);
-
-    const cardData = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3].card?.card;
-
-    let itemCards;
-    if (cardData?.itemCards) {
-        // Use the first path
-        itemCards = cardData.itemCards;
-    } else if (cardData?.categories && cardData.categories[0]?.itemCards) {
-        // Use the second path
-        itemCards = cardData.categories[0].itemCards;
-    } else {
-        // Handle the case where neither path is present
-        itemCards = [];
-    }
-
-    return (
-        <>
-            <div className="min-h-screen">
-                <h1>{name}</h1>
-                <h2>{cuisines.join(",")}</h2>
-                <h3>{costForTwoMessage}</h3>
-                <ul>
-                    {itemCards.map((item) => (
-                        <li key={item.card.info.id}>
-                            {item.card.info.name}- {"Rs."}{item.card.info.price/100 || item.card.info.defaultPrice/100}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </>
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-}
+
+  console.log(categories);
+
+
+  return (
+    <>
+      <div className="min-h-screen text-center my-4 ">
+        <h1 className="font-bold text-2xl">{name}</h1>
+        <h2 className="font-medium text-md my-3">{cuisines.join(", ")} - {costForTwoMessage}</h2>
+        {categories.map((category) => (
+          <RestaurantCategory data={category?.card?.card} key={category?.card?.card?.title} />
+        ))}
+      </div>
+    </>
+  );
+};
 
 export default RestaurantMenu;
