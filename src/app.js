@@ -12,73 +12,76 @@ import Shimmer from "./components/Shimmer";
 import Instamart from "./components/Instamart";
 import UserContext from "./utils/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Contact = lazy(() => import("./components/Contact"));
 
-
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Paresh Chawla",
+    email: "pareshchawlagmail.com",
+  });
 
-        const [user, setUser] = useState({
-            name: "Paresh Chawla",
-            email: "pareshchawlagmail.com",
-        });
-
-
-    return (
-        <UserContext.Provider value={{
-            user: user,
-            setUser: setUser,
-        }}>
-            <Header />
-            <Outlet />
-            <Footer />
-        </UserContext.Provider>
-    )
-}
-
+  return (
+    <Provider store={appStore}>
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
+  );
+};
 
 const appRouter = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
         path: "/",
-        element: <AppLayout />,
-        errorElement: <Error />,
-        children:[
-            {
-                path: "/",
-                element: <Body />,
-            },
-            {
-                path: "/about",
-                element: <About />,
-                children: [
-                    {
-                        path: "profile",
-                        element: <ProfileClass />,
-                    },
-                ],
-            },
-            {
-                path: "/instamart",
-                element: <Instamart />,
-            },
-            {
-                path: "/contact",
-                element: 
-                <Suspense fallback={<Shimmer />}>
-                    <Contact />
-                </Suspense>,
-            },
-            {
-                path: "/login",
-                element: <LoginForm />,
-            },
-            {
-                path:"/restaurants/:resId",
-                element: <RestaurantMenu />,
-            }
-        ]
-    },
-])
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <ProfileClass />,
+          },
+        ],
+      },
+      {
+        path: "/instamart",
+        element: <Instamart />,
+      },
+      {
+        path: "/contact",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Contact />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: <LoginForm />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
