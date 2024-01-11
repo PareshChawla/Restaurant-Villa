@@ -24,12 +24,12 @@ const Body = () => {
       );
       const jsonData = await response.json();
       const apiRestaurants =
-        jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants || [];
 
       setAllRestaurants(apiRestaurants);
       setFilteredRestaurants(apiRestaurants);
-      // console.log(jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      // console.log(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     } catch (error) {
       console.error("Error fetching restaurants:", error);
     }

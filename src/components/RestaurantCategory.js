@@ -12,7 +12,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex}) => {
   return (
     <>
       <div
-        className="flex flex-row w-6/12 ml-[25%] my-4 justify-between bg-gray-200 p-2 shadow-lg cursor-pointer"
+        className="flex flex-row w-6/12 ml-[25%] my-4 justify-between bg-[#CEDEBD] p-2 shadow-lg cursor-pointer"
         onClick={handleClick}
       >
         <span className="font-bold">

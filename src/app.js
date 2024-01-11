@@ -9,11 +9,11 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import ProfileClass from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
-import Instamart from "./components/Instamart";
 import UserContext from "./utils/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Contact = lazy(() => import("./components/Contact"));
 
@@ -60,10 +60,6 @@ const appRouter = createBrowserRouter([
         ],
       },
       {
-        path: "/instamart",
-        element: <Instamart />,
-      },
-      {
         path: "/contact",
         element: (
           <Suspense fallback={<Shimmer />}>
@@ -78,6 +74,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
