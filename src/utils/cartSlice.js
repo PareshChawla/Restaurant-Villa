@@ -16,7 +16,7 @@ const cartSlice = createSlice({
                 state.items.splice(itemIndexToRemove, 1);
             }
         },
-        clearCart: (state, action) => {
+        clearCart: (state) => {
             state.items.length = 0;
         },
     }

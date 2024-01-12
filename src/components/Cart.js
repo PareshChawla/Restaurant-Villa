@@ -22,7 +22,7 @@ const Cart = () => {
       ) : (
         <>
           <h1 className="text-2xl font-bold mb-8">Cart</h1>
-          <div className="border border-gray-500 w-8/12 mx-auto">
+          <div className="border border-gray-500 w-10/12 mx-auto">
             <CategoryMenuList items={cartItems} />
           </div>
           <button

@@ -1,6 +1,8 @@
 import { IMG_CDN_URL } from "../../config";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
+import NONVEG from "../assets/img/nonveg.png";
+import VEG from "../assets/img/veg.png";
 
 const CategoryMenuList = ({ items }) => {
   const dispatch = useDispatch();
@@ -28,9 +30,25 @@ const CategoryMenuList = ({ items }) => {
           key={item?.card?.info?.id}
         >
           <div className="flex flex-col items-start text-left w-8/12">
-            <h1 className="font-medium">{item?.card?.info?.name}</h1>
+            <div className="flex flex-row items-center">
+              <h1 className="font-medium">{item?.card?.info?.name}</h1>
+              <span className="h-4 w-4 ml-2">
+                {item.card.info.itemAttribute.vegClassifier === "NONVEG" ? (
+                  <img src={NONVEG} />
+                ) : (
+                  ""
+                )}
+                {item.card.info.itemAttribute.vegClassifier === "VEG" ? (
+                  <img src={VEG} />
+                ) : (
+                  ""
+                )}
+              </span>
+            </div>
             <h2 className="text-sm leading-8">
-              ₹{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}
+              ₹
+              {item?.card?.info?.price / 100 ||
+                item?.card?.info?.defaultPrice / 100}
             </h2>
             <span className="text-sm text-gray-500">
               {item?.card?.info?.description}
@@ -44,7 +62,7 @@ const CategoryMenuList = ({ items }) => {
             />
             <div className="absolute inset-10 flex my-6 justify-center">
               <button
-                className="w-24 h-6 p-2 text-center flex items-center rounded-md font-bold text-green-500 font-mono bg-white border border-gray-400 hover:shadow-lg"
+                className="w-24 h-6 p-2 text-center flex items-center rounded-md font-bold text-green-500 font-mono bg-white border border-gray-400 hover:shadow-lg hover:bg-gray-100"
                 onClick={() => handleButtonClick(item)}
               >
                 {isItemInCart(item.card.info.id) ? "REMOVE" : "ADD"}
