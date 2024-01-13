@@ -54,7 +54,7 @@ const Header = () => {
           <div className="flex flex-row items-center justify-center">
             <h3 className="font-bold text-sm">{user.name}</h3>
             <button
-              className="mr-6 bg-[#DEB887] border-2 border-black rounded-lg h-6 w-16 hover:bg-black hover:text-red-50 text-sm font-medium m-5 hover:shadow-lg"
+              className="mr-6 bg-[#DEB887] rounded-lg h-6 w-16 hover:bg-black hover:text-red-50 text-sm font-medium m-5 hover:shadow-lg"
               onClick={handleLogoutClick}
             >
               Logout
@@ -62,7 +62,7 @@ const Header = () => {
           </div>
         ) : (
           <button
-            className="mr-6 bg-[#DEB887] border-2 border-black rounded-lg h-6 w-14 hover:bg-black hover:text-red-50 text-sm font-medium m-5 hover:shadow-lg"
+            className="mr-6 bg-[#DEB887] rounded-lg h-6 w-14 hover:bg-black hover:text-red-50 text-sm font-medium m-5 hover:shadow-lg"
             onClick={handleLoginClick}
           >
             Login

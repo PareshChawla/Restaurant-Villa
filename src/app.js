@@ -3,11 +3,9 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import About from "./components/About";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
-import ProfileClass from "./components/ProfileClass";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -16,6 +14,7 @@ import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 
 const Contact = lazy(() => import("./components/Contact"));
+const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
   const [user, setUser] = useState({
@@ -51,13 +50,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
-        children: [
-          {
-            path: "profile",
-            element: <ProfileClass />,
-          },
-        ],
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",

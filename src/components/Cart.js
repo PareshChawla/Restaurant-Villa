@@ -25,12 +25,15 @@ const Cart = () => {
           <div className="border border-gray-500 w-10/12 mx-auto">
             <CategoryMenuList items={cartItems} />
           </div>
+          <div className="flex justify-center items-center">
           <button
-            className="bg-[#DEB887] border-2 border-black  rounded-lg h-6 w-14 hover:bg-black hover:text-red-50 text-sm font-medium m-5 hover:shadow-lg"
+            className="bg-[#DEB887] rounded-lg py-1 px-2 hover:bg-black hover:text-red-50 text-sm font-medium m-5 hover:shadow-lg"
             onClick={handleClearCart}
           >
             CLEAR
           </button>
+          </div>
+   
         </>
       )}
     </div>
