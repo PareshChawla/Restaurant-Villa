@@ -12,7 +12,7 @@ const About = () => {
           Food Villa is a React app that I developed to bring the joy of online
           food ordering to users. The project served as a valuable learning
           experience for exploring and honing my skills in React. It utilizes
-          the Swiggy API to fetch real-time restaurant details and menus. Here
+          the Live Swiggy API to fetch real-time restaurant details and menus. Here
           are some key features of the app:
         </p>
         <ul className="list-disc pl-4 mb-4 space-y-4">
@@ -43,6 +43,11 @@ const About = () => {
             <span className="font-bold">Contact Form with EmailJS:</span>{" "}
             Designed a contact form using EmailJS for user inquiries and
             feedback.
+          </li>
+          <li>
+            <span className="font-bold">State Management with Redux:</span>{" "}
+            Utilized Redux for efficient state management, ensuring a cohesive
+            and scalable application.
           </li>
         </ul>
         <p className="text-gray-700 mt-8">
