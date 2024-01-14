@@ -88,7 +88,7 @@ const Body = () => {
           onKeyDown={handleKeyPress}
         />
         <button
-          className="bg-[#DEB887] border-2 border-black  rounded-lg h-6 w-14 hover:bg-black hover:text-red-50 text-sm font-medium"
+          className="bg-[#DEB887] rounded-lg py-1 px-2 hover:bg-black hover:text-red-50 text-sm font-medium"
           onClick={handleSearch}
         >
           Search
@@ -98,7 +98,7 @@ const Body = () => {
       {noResults ? (
         <div className="flex flex-col text-center items-center">
           <h1 className="text-2xl font-bold">No such restaurant found!!</h1>
-          <img className="h-80 w-80" src={NotFoundImg} alt="no-restaurant" />
+          <img className="h-80 w-80" src={NotFoundImg} alt="no-restaurant"/>
         </div>
       ) : (
         <>

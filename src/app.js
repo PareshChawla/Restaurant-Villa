@@ -5,8 +5,8 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import LoginForm from "./components/LoginForm";
 import Shimmer from "./components/Shimmer";
+import ShimmerRestaurantMenu from "./components/ShimmerRestaurantMenu";
 import UserContext from "./utils/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
@@ -63,10 +63,6 @@ const appRouter = createBrowserRouter([
             <Contact />
           </Suspense>
         ),
-      },
-      {
-        path: "/login",
-        element: <LoginForm />,
       },
       {
         path: "/restaurants/:resId",

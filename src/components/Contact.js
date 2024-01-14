@@ -41,10 +41,11 @@ const Contact = () => {
     };
   
     return (
+      <div className="min-h-screen p-6">
       <form
         ref={form}
         onSubmit={sendEmail}
-        className="max-w-md min-h-screen mx-auto my-6 p-6 bg-white rounded-md shadow-md"
+        className="max-w-md mx-auto my-6 p-6 bg-white rounded-md shadow-md"
       >
       <h1 className="text-2xl font-bold text-center mb-10 text-gray-800">
         Contact us
@@ -96,6 +97,7 @@ const Contact = () => {
         )}
       </div>
     </form>
+    </div>
   );
 };
 

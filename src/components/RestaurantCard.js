@@ -12,7 +12,7 @@ const RestaurantCard = ({
   const truncatedCuisines = cuisines.slice(0, 4);
 
   return (
-    <div className="group inline-block min-h-96 w-80 m-3 p-2.5 bg-white text-center rounded-2xl border border-black shadow-xl overflow-hidden transform transition-transform hover:scale-95">
+    <div className="inline-block min-h-96 w-80 m-3 p-2.5 bg-white text-center rounded-2xl border border-black shadow-xl overflow-hidden transform transition-transform hover:scale-95">
       <img
         src={IMG_CDN_URL + cloudinaryImageId}
         className="h-40 w-[100%] rounded-md"
