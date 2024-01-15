@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Shimmer from "./components/Shimmer";
-import ShimmerRestaurantMenu from "./components/ShimmerRestaurantMenu";
 import UserContext from "./utils/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";

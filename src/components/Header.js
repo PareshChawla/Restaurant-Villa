@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import foodImage from "../assets/img/logo2.png";
+import food from "../assets/img/logo2.png";
 import cart from "../assets/img/cart.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
@@ -9,7 +9,6 @@ const Header = () => {
   const { user } = useContext(UserContext);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
 
   const [isLoggedIn, setLoggedIn] = useState(false);
 
@@ -29,7 +28,7 @@ const Header = () => {
         <Link to="/">
           <img
             className="h-[70px] w-[70px] ml-8 transform transition-transform hover:scale-105"
-            src={foodImage}
+            src={food}
             alt="logo"
           />
         </Link>

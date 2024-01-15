@@ -111,7 +111,7 @@ const Body = () => {
                 key={restaurant.info.id}
                 to={"/restaurants/" + restaurant.info.id}
               >
-                <RestaurantCard {...restaurant.info} key={restaurant.info.id} />
+                <RestaurantCard resData={restaurant?.info} key={restaurant?.info?.id} />
               </Link>
             ))}
           </div>

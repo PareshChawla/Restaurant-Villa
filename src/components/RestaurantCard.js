@@ -1,13 +1,11 @@
 import { IMG_CDN_URL } from "../../config";
 import Star from "../assets/img/star_1828884.png";
 
-const RestaurantCard = ({
-  name,
-  cuisines,
-  cloudinaryImageId,
-  locality,
-  avgRating,
-}) => {
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  console.log(resData);
+
+  const { name, cuisines, cloudinaryImageId, locality, avgRating } = resData;
   const cleanedName = name.replace(/\([^)]+\)/, "").trim();
   const truncatedCuisines = cuisines.slice(0, 4);
 
