@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../utils/cartSlice";
 import NONVEG from "../assets/img/nonveg.png";
 import VEG from "../assets/img/veg.png";
+import EGG from "../assets/img/egg.png";
 
 const CategoryMenuList = ({ items }) => {
   const dispatch = useDispatch();
@@ -35,6 +36,11 @@ const CategoryMenuList = ({ items }) => {
               <span className="h-4 w-4 ml-2">
                 {item?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" ? (
                   <img src={NONVEG} />
+                ) : (
+                  ""
+                )}
+                {item?.card?.info?.itemAttribute?.vegClassifier === "EGG" ? (
+                  <img src={EGG} />
                 ) : (
                   ""
                 )}
