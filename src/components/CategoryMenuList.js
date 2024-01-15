@@ -33,12 +33,12 @@ const CategoryMenuList = ({ items }) => {
             <div className="flex flex-row items-center">
               <h1 className="font-medium">{item?.card?.info?.name}</h1>
               <span className="h-4 w-4 ml-2">
-                {item.card.info.itemAttribute.vegClassifier === "NONVEG" ? (
+                {item?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" ? (
                   <img src={NONVEG} />
                 ) : (
                   ""
                 )}
-                {item.card.info.itemAttribute.vegClassifier === "VEG" ? (
+                {item?.card?.info?.itemAttribute?.vegClassifier === "VEG" ? (
                   <img src={VEG} />
                 ) : (
                   ""
