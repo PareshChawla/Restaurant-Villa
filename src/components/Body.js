@@ -39,7 +39,7 @@ const Body = () => {
 
   if (!isOnline) {
     return (
-      <div className="h-[70vh] text-center items-center mt-4 text-3xl font-bold">
+      <div className="min-h-screen text-center mt-44 text-3xl font-bold">
         <h1>No internet connection!!</h1>
       </div>
     );
@@ -70,10 +70,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="flex justify-center items-center mt-6">
+      <div className="flex flex-col md:flex md:flex-row md:items-center md:justify-center justify-center items-center mt-6">
         <input
           type="text"
-          className="m-5 border-black border-2 rounded-lg text-center focus:bg-blue-100"
+          className="m-4 p-1 md:m-5 md:p-0 border-black border-2 rounded-lg text-center focus:bg-blue-100"
           placeholder="Search"
           value={searchInput}
           onChange={(e) => {
@@ -96,22 +96,27 @@ const Body = () => {
       </div>
 
       {noResults ? (
-        <div className="flex flex-col text-center items-center">
-          <h1 className="text-2xl font-bold">No such restaurant found!!</h1>
-          <img className="h-80 w-80" src={NotFoundImg} alt="no-restaurant"/>
+        <div className="min-h-screen flex flex-col text-center items-center mt-10">
+          <h1 className="text-xl md:text-2xl font-bold">
+            No such restaurant found!!
+          </h1>
+          <img className="h-80 w-80" src={NotFoundImg} alt="no-restaurant" />
         </div>
       ) : (
         <>
-          <h1 className="font-bold text-2xl ml-5 mb-2">
+          <h1 className="text-xl text-center font-bold md:text-2xl lg:text-start lg:ml-5 mb-2 mt-5 md:mt-0">
             Top restaurant chains
           </h1>
-          <div className="flex flex-wrap bg-[#9EB384]">
+          <div className="md:flex flex flex-wrap justify-center lg:justify-start md:flex-wrap md:gap-5 lg:gap-1 bg-[#9EB384]">
             {filteredRestaurants.map((restaurant) => (
               <Link
                 key={restaurant.info.id}
                 to={"/restaurants/" + restaurant.info.id}
               >
-                <RestaurantCard resData={restaurant?.info} key={restaurant?.info?.id} />
+                <RestaurantCard
+                  resData={restaurant?.info}
+                  key={restaurant?.info?.id}
+                />
               </Link>
             ))}
           </div>

@@ -27,12 +27,14 @@ const CategoryMenuList = ({ items }) => {
     <>
       {items.map((item) => (
         <div
-          className="flex flex-row w-6/12 mx-auto justify-between p-3 border-gray-200 border-b-2 relative items-center"
+          className="flex-col flex md:flex-row md:w-6/12 md:mx-auto justify-between p-3 border-gray-200 border-b-2 relative items-center"
           key={item?.card?.info?.id}
         >
-          <div className="flex flex-col items-start text-left w-8/12">
+          <div className="text-left w-10/12 md:flex md:flex-col md:items-start md:text-left md:w-8/12">
             <div className="flex flex-row items-center">
-              <h1 className="font-medium">{item?.card?.info?.name}</h1>
+              <h1 className="text-sm text-left font-medium md:font-medium">
+                {item?.card?.info?.name}
+              </h1>
               <span className="h-4 w-4 ml-2">
                 {item?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" ? (
                   <img src={NONVEG} />
@@ -51,16 +53,16 @@ const CategoryMenuList = ({ items }) => {
                 )}
               </span>
             </div>
-            <h2 className="text-sm leading-8">
+            <h2 className="text-xs leading-8">
               ₹
               {item?.card?.info?.price / 100 ||
                 item?.card?.info?.defaultPrice / 100}
             </h2>
-            <span className="text-sm text-gray-500">
+            <span className="text-xs text-gray-500">
               {item?.card?.info?.description}
             </span>
           </div>
-          <div className="relative flex-shrink-0">
+          <div className="relative flex-shrink-0 mt-3 md:mt-0">
             <img
               className="h-20 w-30 rounded-md"
               src={IMG_CDN_URL + item?.card?.info?.imageId}
