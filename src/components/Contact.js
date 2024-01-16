@@ -79,6 +79,7 @@ const Contact = () => {
             name="message"
           />
         </div>
+        
         <div className="flex items-center justify-center">
           {success ? (
             <div className="text-green-600 font-bold">
