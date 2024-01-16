@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel public/index.html",
     "build": "parcel build public/index.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "author": "Paresh Chawla",
   "license": "ISC",
