@@ -5,6 +5,7 @@ import NotFoundImg from "../assets/img/notFound.jpg";
 import { filterData } from "../utils/utils";
 import useOnline from "../hooks/useOnline";
 import { Link } from "react-router-dom";
+import RES_API from "../../api/resdata";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -19,9 +20,7 @@ const Body = () => {
 
   async function getRestaurants() {
     try {
-      const response = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      const response = await fetch(RES_API);
       const jsonData = await response.json();
       const apiRestaurants =
         jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
