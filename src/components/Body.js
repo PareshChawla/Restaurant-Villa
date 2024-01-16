@@ -17,6 +17,10 @@ const Body = () => {
     getRestaurants();
   }, []); // Ensure useEffect runs only once on component mount
 
+  useEffect(() => {
+    alert("Please enable the browser extension 'CORS UNBLOCK' to fetch the Restaurant data from swiggy API!!");
+  }, []); 
+
   async function getRestaurants() {
     try {
       const response = await fetch(
